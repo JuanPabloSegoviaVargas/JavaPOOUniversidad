@@ -6,7 +6,7 @@
 package bo.usfx.sis457.entidades;
 
 import bo.usfx.sis457.Utilitarios;
-import java.util.Calendar;
+import java.util.*;
 
 /**
  *
@@ -15,32 +15,24 @@ import java.util.Calendar;
 public class Administrativo extends Persona {
     protected String Cargo;
     protected String Lugar_de_trabajo;
-    protected Calendar fechaIngreso;
+    protected Calendar FechaIngreso;
+  
     
     public Administrativo(String cargo,String carnetIdentidad, String nombre, String Lugar_de_trabajo,Calendar fechaNacimiento, Calendar fechaIngreso) {
         super(carnetIdentidad, nombre, fechaNacimiento);
         this.Cargo = cargo;
         this.Lugar_de_trabajo = Lugar_de_trabajo;
-    }
-
-    public Administrativo(Calendar fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
+        this.FechaIngreso = fechaIngreso;
     }
 
     public Calendar getFechaIngreso() {
-        return fechaIngreso;
+        return FechaIngreso;
     }
 
-    public void setFechaIngreso(Calendar fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
+    public void setFechaIngreso(Calendar FechaIngreso) {
+        this.FechaIngreso = FechaIngreso;
     }
-    public Administrativo(String cargo, String Lugar_de_trabajo) {
-        this.Cargo = cargo;
-        this.Lugar_de_trabajo = Lugar_de_trabajo;
-    }
-    public Administrativo(){
-    }
-
+    
     public String getCargo() {
         return Cargo;
     }
@@ -63,7 +55,7 @@ public class Administrativo extends Persona {
                 + ", CarnetIdentidad=" + this.CarnetIdentidad 
                 + ", Nombre=" + this.Nombre 
                 + ", Fecha_de_Nacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
-                + ", Fecha_de_Ingreso=" + Utilitarios.getFechaCalendario(this.fechaIngreso)
+                + ", Fecha_de_Ingreso=" + Utilitarios.getFechaCalendario(this.FechaIngreso)
                 + ", Cargo=" + Cargo + ", Lugar_de_trabajo=" + Lugar_de_trabajo + '}';
     }
     

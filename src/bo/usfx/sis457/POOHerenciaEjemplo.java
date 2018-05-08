@@ -92,19 +92,19 @@ public class POOHerenciaEjemplo {
                 menuAdministrativos();
                 break;
             case "2":
-                anadirProfesor();
+                anadirAdministrativo();
                 volverMenu();
-                menuProfesores();
+                menuAdministrativos();
                 break;
             case "3":
-                modificarProfesor();
+                modificarAdministrativo();
                 volverMenu();
-                menuProfesores();
+                menuAdministrativos();
                 break;
             case "4":
-                borrarProfesor();
+                borrarAdministrativo();
                 volverMenu();
-                menuProfesores();
+                menuAdministrativos();
                 break;
             default:
                 menuPrincipal();
@@ -366,6 +366,49 @@ public class POOHerenciaEjemplo {
             System.out.println("Error: " + ex.getMessage());
         }
     }
+    public static void modificarAdministrativo() {
+        int id;
+        Administrativo administrativo;
+        BufferedReader entradaTeclado = new BufferedReader(new InputStreamReader(System.in));
+        
+        limpiarConsola();
+        System.out.println("+==================================================+");
+        System.out.println("| Modificar Administrativo                         |");
+        System.out.println("+==================================================+");
+        try {
+            System.out.print("Introduzca el Id del Administrativo a Modificar: ");
+            id = buscarPersona(Integer.parseInt(entradaTeclado.readLine()));
+            if (id > -1) {
+                administrativo = (Administrativo)personas.get(id);
+                System.out.print("Modificar el Carnet de Identidad '" + administrativo.getCarnetIdentidad()+ "': ");
+                administrativo.setCarnetIdentidad(entradaTeclado.readLine());
+                System.out.print("Modificar el Nombre '" + administrativo.getNombre() + "': ");
+                administrativo.setNombre(entradaTeclado.readLine());
+                System.out.print("Modificar la Fecha de Nacimiento '" + Utilitarios.getFechaCalendario(administrativo.getFechaNacimiento()) + "': ");
+                Date fechaNacimientoDate = new SimpleDateFormat("yyyy-MM-dd").parse(entradaTeclado.readLine());
+                Calendar fechaNacimientoCalendario = Calendar.getInstance();
+                fechaNacimientoCalendario.setTime(fechaNacimientoDate);
+                administrativo.setFechaNacimiento(fechaNacimientoCalendario);
+                
+                System.out.print("Modificar la Fecha de Ingreso '" + Utilitarios.getFechaCalendario(administrativo.getFechaIngreso()) + "': ");
+                Date fechaIngresoDate = new SimpleDateFormat("yyyy-MM-dd").parse(entradaTeclado.readLine());
+                Calendar fechaIngresoCalendario = Calendar.getInstance();
+                fechaIngresoCalendario.setTime(fechaIngresoDate);
+                administrativo.setFechaIngreso(fechaIngresoCalendario);
+                
+                System.out.print("Modificar el Cargo '" + administrativo.getCargo()+ "': ");
+                administrativo.setCargo(entradaTeclado.readLine());
+                System.out.print("Introduzca el Lugar de trabajo: ");
+                administrativo.setLugar_de_trabajo(entradaTeclado.readLine());
+                personas.set(id, administrativo);
+                System.out.println("Registro de Administrativo modificado!");
+            } else {
+                System.out.println("El Registro de administrativo no existe!");
+            }
+        } catch(Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }
     
     public static void borrarProfesor() {
         int id;
@@ -388,7 +431,27 @@ public class POOHerenciaEjemplo {
             System.out.println("Error: " + ex.getMessage());
         }
     }
-    
+    public static void borrarAdministrativo() {
+        int id;
+        BufferedReader entradaTeclado = new BufferedReader(new InputStreamReader(System.in));
+        
+        limpiarConsola();
+        System.out.println("+==================================================+");
+        System.out.println("| Borrar Administrativo                            |");
+        System.out.println("+==================================================+");
+        try {
+            System.out.print("Introduzca el Id del Administrativo a Borrar: ");
+            id = buscarPersona(Integer.parseInt(entradaTeclado.readLine()));
+            if (id > -1) {
+                personas.remove(id);
+                System.out.println("Registro de Administrativo borrado!");
+            } else {
+                System.out.println("El Registro de Administrativo no existe!");
+            }
+        } catch(Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }
     public static void listarAlumnos() {
         limpiarConsola();
         System.out.println("+==================================================+");
@@ -434,6 +497,46 @@ public class POOHerenciaEjemplo {
             fechaNacimientoCalendario.setTime(fechaNacimientoDate);
             personas.add(new Alumno(carnetUniversitario, semestre, carnetIdentidad, nombre, fechaNacimientoCalendario));
             System.out.println("Registro de Profesor completado!");
+        } catch(Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }
+    public static void anadirAdministrativo(){
+        String carnetIdentidad;
+        String nombre;
+        String fechaNacimiento;
+
+        String cargo, lugarTrabajo;
+        String fechaIngreso;
+        BufferedReader entradaTeclado = new BufferedReader(new InputStreamReader(System.in));
+        
+        limpiarConsola();
+        try {
+            System.out.println("+==================================================+");
+            System.out.println("| Administrativo                                   |");
+            System.out.println("+==================================================+");
+            System.out.print("Introduzca el Carnet de Identidad: ");
+            carnetIdentidad = entradaTeclado.readLine();
+            System.out.print("Introduzca el Nombre: ");
+            nombre = entradaTeclado.readLine();
+            System.out.print("Introduzca la Fecha de Nacimiento (ejemplo: 1980-01-01): ");
+            fechaNacimiento = entradaTeclado.readLine();
+            System.out.print("Introduzca el Lugar de trabajo: ");
+            lugarTrabajo = entradaTeclado.readLine();
+            System.out.print("Introduzca el Cargo: ");
+            cargo = entradaTeclado.readLine();
+            System.out.println("Introduzca la Fecha de ingreso (ejemplo; 2000-01-01): ");
+            fechaIngreso = entradaTeclado.readLine();
+            Date fechaNacimientoDate = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
+            Calendar fechaNacimientoCalendario = Calendar.getInstance();
+            fechaNacimientoCalendario.setTime(fechaNacimientoDate);
+            
+            Date fechaIngresoDate = new SimpleDateFormat("yyyy-MM-dd").parse(fechaIngreso);
+            Calendar fechaIngresoCalendario = Calendar.getInstance();
+            fechaIngresoCalendario.setTime(fechaIngresoDate);
+            
+            personas.add(new Administrativo(lugarTrabajo, cargo, carnetIdentidad, nombre, fechaNacimientoCalendario, fechaIngresoCalendario));
+            System.out.println("Registro de Administrativo completado!");
         } catch(Exception ex) {
             System.out.println("Error: " + ex.getMessage());
         }
