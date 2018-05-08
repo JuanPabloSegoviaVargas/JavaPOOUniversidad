@@ -5,10 +5,43 @@
  */
 package bo.usfx.sis457.entidades;
 
+import bo.usfx.sis457.Utilitarios;
+import java.util.*;
+
 /**
  *
  * @author pablo
  */
-public class DocenteTitular {
+public class DocenteTitular  extends Docente{
+    protected String ExamenCompetencia;
     
+    public DocenteTitular(int exp, String asignaturas[],String examenCompetencia, String titulo, String carnetIdentidad, String nombre, Calendar fechaNacimiento) {
+        super(exp, asignaturas, titulo, carnetIdentidad, nombre, fechaNacimiento);
+        this.ExamenCompetencia=examenCompetencia;
+    }
+
+    /**
+     *
+     */
+
+    public String getExamenCompetencia() {
+        return ExamenCompetencia;
+    }
+
+    public void setExamenCompetencia(String ExamenCompetencia) {
+        this.ExamenCompetencia = ExamenCompetencia;
+    }
+    public String toString() {
+        return "Docente{" 
+                + "Id=" + this.Id 
+                + ", CarnetIdentidad=" + this.CarnetIdentidad 
+                + ", Nombre=" + this.Nombre
+                + ", Examen de Competencia=" + this.ExamenCompetencia
+                + ", Anios de Experiecia=" + this.Exp 
+                + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
+                + ", Contrato=" + Asignaturas + ", Titulo=" + Titulo + '}';
+    }
+
+
+       
 }
