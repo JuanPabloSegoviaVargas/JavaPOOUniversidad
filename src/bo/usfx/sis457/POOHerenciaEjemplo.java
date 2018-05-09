@@ -273,18 +273,56 @@ public class POOHerenciaEjemplo {
         System.out.println("+==================================================+");
         int i = 0;
         int c = 0;
-        for (Persona docente: personas) {
-            if (docente instanceof DocenteTitular) {
-                i++;
-                System.out.println(i + "Docentes  Titulares:  " + docente);
-            }else if(docente instanceof DocenteContrato){
-                c++;
-                System.out.println(c + "Docentes A Contrato:  " + docente);
+        int opc;
+        try{
+            BufferedReader entradaTeclado = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("+==================================================+");
+            System.out.println("| 1: Listado de Docentes  Titulares                |");
+            System.out.println("| 2: Listado de Docentes  A Contrato               |");
+            System.out.println("| 3: Listado de Todos los docentes                 |");
+            System.out.println("|                                                  |");
+            System.out.println("+==================================================+");
+            opc=Integer.parseInt(entradaTeclado.readLine());
+            
+            switch(opc){
+                case 1: 
+                    for (Persona docente: personas) {
+                        if (docente instanceof DocenteTitular) {
+                            i++;
+                            System.out.println(i + "Docentes  Titulares:  " + docente);
+                        }else if(i==0){
+                            System.out.println("No ecisten Docentes titulares");
+                        }
+                    }
+                    break;
+                case 2:
+                    for (Persona docente: personas) {
+                        
+                         if(docente instanceof DocenteContrato){
+                            c++;
+                            System.out.println(c + "Docentes A Contrato:  " + docente);
+                        }else if(c==0){
+                            System.out.println("No ecisten Docentes a contrato");
+                        }
+                    }
+                    break;
+                case 3:
+                    for (Persona docente: personas) {
+                        if (docente instanceof DocenteTitular) {
+                             i++;
+                            System.out.println(i + "Docentes  Titulares:  " + docente);
+                        }else if(docente instanceof DocenteContrato){
+                            c++;
+                            System.out.println(c + "Docentes A Contrato:  " + docente);
+                        }
+                    
+                    }break;
+                default: volverMenu();
             }
+        }catch(Exception ex) {
+            System.out.println("error: " + ex.getMessage());
         }
-        if (i == 0) {
-            System.out.println("No existen registros");
-        }
+        
     }
     public static void listarAdministrativos(){
         limpiarConsola();
