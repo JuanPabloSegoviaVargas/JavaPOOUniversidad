@@ -273,6 +273,7 @@ public class POOHerenciaEjemplo {
         System.out.println("+==================================================+");
         int i = 0;
         int c = 0;
+        int a=0;
         int opc;
         try{
             BufferedReader entradaTeclado = new BufferedReader(new InputStreamReader(System.in));
@@ -286,13 +287,14 @@ public class POOHerenciaEjemplo {
             
             switch(opc){
                 case 1: 
-                    for (Persona docente: personas) {
-                        if (docente instanceof DocenteTitular) {
+                    for (Persona profesor: personas) {
+                        if(profesor instanceof DocenteTitular) {
                             i++;
-                            System.out.println(i + "Docentes  Titulares:  " + docente);
-                        }else if(i==0){
-                            System.out.println("No ecisten Docentes titulares");
+                            System.out.println(i + "Docente Titular:     " + profesor);
                         }
+                    }
+                    if (i == 0) {
+                        System.out.println("No existen registros");
                     }
                     break;
                 case 2:
@@ -300,23 +302,24 @@ public class POOHerenciaEjemplo {
                         
                          if(docente instanceof DocenteContrato){
                             c++;
-                            System.out.println(c + "Docentes A Contrato:  " + docente);
-                        }else if(c==0){
-                            System.out.println("No ecisten Docentes a contrato");
+                            System.out.println(c + "Docentes A Contrato: " + docente);
+                        } 
+                    }if(c==0){
+                           System.out.println("No ecisten Docentes a contrato");
                         }
-                    }
                     break;
                 case 3:
                     for (Persona docente: personas) {
                         if (docente instanceof DocenteTitular) {
-                             i++;
-                            System.out.println(i + "Docentes  Titulares:  " + docente);
+                            
+                            System.out.println(a + "Docentes  Titulares:  " + docente);
                         }else if(docente instanceof DocenteContrato){
-                            c++;
-                            System.out.println(c + "Docentes A Contrato:  " + docente);
+                            
+                            System.out.println(a + "Docentes A Contrato:  " + docente);
                         }
-                    
-                    }break;
+                    a++;
+                    }
+                    break;
                 default: volverMenu();
             }
         }catch(Exception ex) {
