@@ -6,6 +6,7 @@
 package bo.usfx.sis457.entidades;
 
 import bo.usfx.sis457.Utilitarios;
+import java.util.Arrays;
 import java.util.Calendar;
 
 /**
@@ -26,6 +27,7 @@ public class DocenteContrato extends Docente{
     public void setNumContrato(String NumContrato) {
         this.NumContrato = NumContrato;
     }
+    @Override
     public String toString() {
         return "Docente{" 
                 + "Id=" + this.Id 
@@ -34,6 +36,6 @@ public class DocenteContrato extends Docente{
                 + ", Numero de Contrato=" + this.NumContrato
                 + ", Anios de Experiecia=" + this.Exp 
                 + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
-                + ", Asignaturas=" + Asignaturas + ", Titulo=" + Titulo + '}';
+                + ", Asignaturas=" + Arrays.toString(Asignaturas) + ", Titulo=" + Titulo + '}';
     }
 }

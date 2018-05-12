@@ -27,7 +27,8 @@ public class POOHerenciaEjemplo {
         //personas.add(new Docente("1", "Licenciado en Informática", "222222", "Juan Perez", new GregorianCalendar(1980, 11,01)));
         personas.add(new Alumno("35-2", 1));
         personas.add(new Alumno("35-3", 1));
-        //personas.add(new Docente("2", "Ingeniero de Sistemas"));
+        //personas.add(new Docente("calculo", "Ingeniero de Sistemas",5));
+        
         personas.add(new Alumno("35-4", 1));
         
         menuPrincipal();
