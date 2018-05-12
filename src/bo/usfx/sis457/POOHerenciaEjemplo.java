@@ -415,7 +415,9 @@ public class POOHerenciaEjemplo {
             System.out.print("Introduzca el Id del Profesor a Modificar: ");
             id = buscarPersona(Integer.parseInt(entradaTeclado.readLine()));
             if (id > -1) {
-                profesor = (Docente)personas.get(id);
+                profesor = (DocenteTitular)personas.get(id);
+                profesor = (DocenteContrato)personas.get(id);
+                       
                 System.out.print("Modificar el Carnet de Identidad '" + profesor.getCarnetIdentidad()+ "': ");
                 profesor.setCarnetIdentidad(entradaTeclado.readLine());
                 System.out.print("Modificar el Nombre '" + profesor.getNombre() + "': ");

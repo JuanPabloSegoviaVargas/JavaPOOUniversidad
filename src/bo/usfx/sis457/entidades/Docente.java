@@ -57,13 +57,14 @@ public class Docente extends Persona {
     
     @Override
     public String toString() {
-        return "Profesor{" 
+        return "Docente{" 
                 + "Id=" + this.Id 
                 + ", CarnetIdentidad=" + this.CarnetIdentidad 
                 + ", Nombre=" + this.Nombre 
                 + ", Anios de Experiecia=" + this.Exp 
                 + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
-                + ", Asignaturas=" + Asignaturas + ", Titulo=" + Titulo + '}';
+                + ", Asignaturas=" + Asignaturas
+                + ", Titulo=" + Titulo + '}';
     }
     
 }
