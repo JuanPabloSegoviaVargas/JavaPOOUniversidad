@@ -6,6 +6,7 @@
 package bo.usfx.sis457.entidades;
 
 import bo.usfx.sis457.Utilitarios;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -63,7 +64,7 @@ public class Alumno extends Persona {
                 + "Id=" + this.Id 
                 + ", CarnetIdentidad=" + this.CarnetIdentidad 
                 + ", Nombre=" + this.Nombre 
-                + ", Asignaturas=" + this.Asignatura
+                + ", Asignaturas=" + Arrays.toString(this.Asignatura)
                 + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
                 + ", CarnetUniversitario=" + this.CarnetUniversitario 
                 + ", Semestre=" + this.Semestre + '}';

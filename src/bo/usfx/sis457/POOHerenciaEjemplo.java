@@ -428,7 +428,7 @@ public class POOHerenciaEjemplo {
                 Calendar fechaNacimientoCalendario = Calendar.getInstance();
                 fechaNacimientoCalendario.setTime(fechaNacimientoDate);
                 profesor.setFechaNacimiento(fechaNacimientoCalendario);
-                System.out.print("Modificar Asignatuas '" + profesor.getAsignaturas()+ "': ");
+                System.out.print("Modificar Asignatuas '" + Arrays.toString(profesor.getAsignaturas())+ "': ");
                 profesor.setAsignaturas(insertar());
                 System.out.print("Introduzca el Título Universitario: ");
                 profesor.setTitulo(entradaTeclado.readLine());
