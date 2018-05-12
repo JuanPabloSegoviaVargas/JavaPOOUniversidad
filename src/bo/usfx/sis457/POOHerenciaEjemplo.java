@@ -343,6 +343,7 @@ public class POOHerenciaEjemplo {
             System.out.println("No existen registros");
         }
     }
+    @SuppressWarnings("empty-statement")
     public static void anadirDocente() {
         String carnetIdentidad;
         
@@ -415,8 +416,8 @@ public class POOHerenciaEjemplo {
             System.out.print("Introduzca el Id del Profesor a Modificar: ");
             id = buscarPersona(Integer.parseInt(entradaTeclado.readLine()));
             if (id > -1) {
-                profesor = (DocenteTitular)personas.get(id);
-                profesor = (DocenteContrato)personas.get(id);
+                profesor = (Docente)personas.get(id);
+              
                        
                 System.out.print("Modificar el Carnet de Identidad '" + profesor.getCarnetIdentidad()+ "': ");
                 profesor.setCarnetIdentidad(entradaTeclado.readLine());

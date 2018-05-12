@@ -6,6 +6,7 @@
 package bo.usfx.sis457.entidades;
 
 import bo.usfx.sis457.Utilitarios;
+import java.util.Arrays;
 import java.util.Calendar;
 
 /**
@@ -63,7 +64,7 @@ public class Docente extends Persona {
                 + ", Nombre=" + this.Nombre 
                 + ", Anios de Experiecia=" + this.Exp 
                 + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
-                + ", Asignaturas=" + Asignaturas
+                + ", Asignaturas=" + Arrays.toString(Asignaturas)
                 + ", Titulo=" + Titulo + '}';
     }
     

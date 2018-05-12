@@ -6,6 +6,7 @@
 package bo.usfx.sis457.entidades;
 
 import bo.usfx.sis457.Utilitarios;
+
 import java.util.*;
 
 /**
@@ -31,6 +32,7 @@ public class DocenteTitular  extends Docente{
     public void setExamenCompetencia(String ExamenCompetencia) {
         this.ExamenCompetencia = ExamenCompetencia;
     }
+    @Override
     public String toString() {
         return "Docente{" 
                 + "Id=" + this.Id 
@@ -39,7 +41,7 @@ public class DocenteTitular  extends Docente{
                 + ", Examen de Competencia=" + this.ExamenCompetencia
                 + ", Anios de Experiecia=" + this.Exp 
                 + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
-                + ", Asignaturas=" + Asignaturas
+                + ", Asignaturas=" + Arrays.toString(Asignaturas)
                
                 
                 + ", Titulo=" + Titulo + '}';
